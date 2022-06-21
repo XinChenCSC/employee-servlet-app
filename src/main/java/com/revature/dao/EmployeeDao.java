@@ -26,7 +26,10 @@ public class EmployeeDao {
 	}
 	
 	public List<Employee> findAll(){
-		return null;
+		Session ses = HibernateUtil.getSession();
+		List<Employee> emps = ses.createQuery("from Employee", Employee.class).list();
+		
+		return emps;
 		
 	}
 	
